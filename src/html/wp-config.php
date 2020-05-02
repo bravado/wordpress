@@ -1,14 +1,20 @@
 <?php
-/** Enable W3 Total Cache */
+
+/** Container defaults */
+define('WP_ROOT_URL', "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['HTTP_HOST']}");
+define('WP_HOME', "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['HTTP_HOST']}" );
+define('WP_SITEURL', WP_HOME.'/wordpress');
+define('WP_CONTENT_DIR', __DIR__ . '/wp-content' );
+define('WP_CONTENT_URL', WP_HOME . "/wp-content" );
+define('WPMU_PLUGIN_DIR', __DIR__ . '/mu-plugins');
+define('WPMU_PLUGIN_URL', WP_HOME . '/mu-plugins');
+
 define('FS_METHOD', 'direct');
 define('DISABLE_WP_CRON', false);
 
-define( 'WP_CONTENT_DIR', __DIR__ . '/wp-content' );
-define( 'WP_CONTENT_URL', "https://${SERVER['HTTP_HOST']}/wp-content" );
+require WP_CONTENT_DIR.'/wp-config-salts.php';
 
 require dirname(__DIR__).'/wp-config-database.php';
-
-require WP_CONTENT_DIR.'/wp-config-salts.php';
 
 /**#@-*/
 

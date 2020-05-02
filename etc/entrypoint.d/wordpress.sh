@@ -1,8 +1,9 @@
 
 
 # Fix permissions
-chown app:${APACHE_RUN_GROUP} /var/www/html/wp-content
-
+chown app:app /var/www/html/wp-content
+[[ -d /var/www/html/wp-content/themes ]] || mkdir /var/www/html/wp-content/themes
+[[ -d /var/www/htnk/wp-content/plugins ]] || mkdir /var/www/html/wp-content/plugins
 
 cat << EOF > /var/www/wp-config-database.php
 <?php
