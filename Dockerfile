@@ -2,9 +2,9 @@ FROM bravado/php:7.3
 
 ARG WP_VERSION=5.4.1
 
-RUN curl -L https://br.wordpress.org/wordpress-${WP_VERSION}-pt_BR.tar.gz | tar -xz -C /var/www/html
-
 USER root
+
+RUN curl -L https://br.wordpress.org/wordpress-${WP_VERSION}-pt_BR.tar.gz | tar -xz -C /var/www/html
 
 ADD etc/ /etc/
 ADD src/ /var/www/

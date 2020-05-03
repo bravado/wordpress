@@ -1,4 +1,9 @@
 <?php
+/** Fix https behind proxy */
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+    $_SERVER['HTTPS']='on';
+    $_SERVER['REQUEST_SCHEME'] = 'https';
+}
 
 /** Container defaults */
 define('WP_ROOT_URL', "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['HTTP_HOST']}");
